@@ -156,6 +156,6 @@ Built in Power BI with two themes:
 
 ## Author
 
-**Rott** — Aspiring Data Analyst & Data Scientist
+**Kuppam Shanmukha** — Aspiring Data Analyst & Data Scientist
 
 Dataset credit: [asaniczka on Kaggle](https://www.kaggle.com/datasets/asaniczka/1-3m-linkedin-jobs-and-skills-2024)
