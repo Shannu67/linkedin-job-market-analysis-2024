@@ -92,25 +92,25 @@ A significant data quality issue was discovered — skills like "Communication",
 
 ## Challenges and How They Were Solved
 
-**Challenge 1 — Kaggle API setup**
+**Challenge 1 - Kaggle API setup**
 The standard Kaggle token download did not work in the browser. Solved by manually creating the `kaggle.json` credentials file directly in Colab using Python's json library.
 
-**Challenge 2 — Colab session kept crashing**
+**Challenge 2 - Colab session kept crashing**
 Loading 1.3 million rows into Colab repeatedly caused RAM crashes. Solved by using `dtype='category'` for text columns which dramatically reduced memory usage, and by processing the skills file in chunks of 50,000 rows at a time using Python's Counter instead of loading everything at once.
 
-**Challenge 3 — Duplicate skill names**
+**Challenge 3 - Duplicate skill names**
 The skills column had the same skill listed in multiple formats — different capitalizations, spacing, and merged words (e.g. "Problemsolving" vs "Problem solving"). Solved by converting all skills to lowercase, stripping extra whitespace, and using a standardization dictionary to merge known duplicates.
 
-**Challenge 4 — US states appearing as countries**
+**Challenge 4 - US states appearing as countries**
 Extracting the last part of a location like "New York, NY" gave "NY" not "United States". Solved by building a lookup list of all 50 US state abbreviations and replacing matches with "United States".
 
-**Challenge 5 — Job aggregators inflating company data**
+**Challenge 5 - Job aggregators inflating company data**
 Companies like Health eCareers, TravelNurseSource and ClearanceJobs are job boards not actual employers. They were posting tens of thousands of jobs on behalf of real companies. Solved by building an exclusion list and filtering them out before analysis.
 
-**Challenge 6 — Metropolitan area labels in location data**
+**Challenge 6 - Metropolitan area labels in location data**
 LinkedIn uses regional labels like "New York City Metropolitan Area" and "Greater Houston" as locations. These were appearing in country and city analysis. Solved using `str.contains()` with pattern matching to filter them out.
 
-**Challenge 7 — Power BI map visual retirement**
+**Challenge 7 - Power BI map visual retirement**
 The built-in Map visual in Power BI showed a retirement warning during dashboard building. Attempted to replace with Azure Maps but the visual was not available in the environment. Kept the existing map visuals as they still functioned correctly for the analysis.
 
 ---
@@ -119,23 +119,23 @@ The built-in Map visual in Power BI showed a retirement warning during dashboard
 
 Built in Power BI with two themes:
 
-**Dark Theme** — futuristic dark navy with electric cyan accents (`#0D1117` background, `#00C6FF` accents)
+**Dark Theme** - futuristic dark navy with electric cyan accents (`#0D1117` background, `#00C6FF` accents)
 
-**Light Theme** — clean professional white with LinkedIn blue (`#F3F6FB` background, `#0A66C2` accents)
+**Light Theme** - clean professional white with LinkedIn blue (`#F3F6FB` background, `#0A66C2` accents)
 
 ### Visuals included:
-- 4 KPI cards — Total Job Postings, Total Companies Hiring, Total Countries, Top Job Type
-- Top 20 Most In Demand Skills — horizontal bar chart
-- Top 10 Hiring Companies — treemap
-- Top 10 Hiring Cities — map visual
-- Remote Jobs By Country — filled map
-- Job Type Distribution — donut chart
+- 4 KPI cards - Total Job Postings, Total Companies Hiring, Total Countries, Top Job Type
+- Top 20 Most In Demand Skills - horizontal bar chart
+- Top 10 Hiring Companies - treemap
+- Top 10 Hiring Cities - map visual
+- Remote Jobs By Country - filled map
+- Job Type Distribution - donut chart
 
 ---
 
 ## How to Run
 
-1. Open the notebook `Untitled13.ipynb` in Google Colab
+1. Open the notebook `linkedin_job_analysis.ipynb` in Google Colab
 2. Replace the Kaggle credentials in Cell 1 with your own username and API key
 3. Run all cells in order
 4. Download the generated CSV files
