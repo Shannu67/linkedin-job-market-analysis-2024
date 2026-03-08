@@ -49,7 +49,7 @@ All three files connect through the `job_link` column.
 ```
 linkedin_analysis/
 │
-├── Untitled13.ipynb          # Main analysis notebook
+├── linkedin_job_analysis.ipynb          # Main analysis notebook
 ├── top_jobs.csv              # Top 10 most posted job titles
 ├── top_companies.csv         # Top 10 companies before cleaning
 ├── top_companies_clean.csv   # Top 10 companies after removing aggregators
